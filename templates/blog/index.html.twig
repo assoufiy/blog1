@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Les categories {% endblock %}
+
+{% block body %}
+    {% for category in categories %}
+    <h1> {{ category.name }}</h1>
+            {% for article in category.articles %}
+            <li>
+                {{ loop.index }} / {{ article.title }} : {{ article.content }}
+            </li>
+            {% endfor %}
+    {% endfor %}
+
+<h2> Ajout de categorie</h2>
+    {{ form_start(form) }}
+    {{ form_row(form.name) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+{% endblock %}
+
+
+
+
+
+

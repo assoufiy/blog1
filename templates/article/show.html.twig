@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}article_show{% endblock %}
+
+{% block body %}
+    <div class="example-wrapper">
+        <h2>Article</h2>
+        <ul>
+            <ul>
+                <li>Id: {{ article.id }}</li>
+                <li>Titre: {{ article.title }}</li>
+                <li>Contenu: {{ article.content }}</li>
+            </ul>
+        </ul>
+    </div>
+    <strong>Tags :</strong>
+    <ul>
+        {% for tag in article.tags %}
+            <li>
+                <a href="{{ path('tag_show', {'name': tag.name}) }}">{{ tag.name }} </a>
+            </li>
+        {% else %}
+            <li>No tags for this article</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
